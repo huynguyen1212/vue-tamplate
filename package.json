@@ -8,8 +8,11 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "cm": "cz",
-    "prepare": "husky install"
+    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore src",
+    "lint:fix": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src",
+    "format": "prettier .  --write",
+    "prepare": "husky install",
+    "cm": "cz"
   },
   "dependencies": {
     "@vueuse/core": "^9.13.0",

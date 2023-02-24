@@ -1,27 +1,27 @@
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import UnoCSS from "unocss/vite";
-import Components from "unplugin-vue-components/vite";
-import { AntDesignVueResolver } from "unplugin-vue-components/resolvers";
-import AutoImport from "unplugin-auto-import/vite";
-import tsconfigPathsPlugin from "vite-tsconfig-paths";
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import UnoCSS from 'unocss/vite'
+import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+import AutoImport from 'unplugin-auto-import/vite'
+import tsconfigPathsPlugin from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    tsconfigPathsPlugin(),
     vue(),
+    tsconfigPathsPlugin(),
     UnoCSS(),
     AutoImport({
-      imports: ["vue", "@vueuse/core", "vue-router"],
-      dts: "src/auto-imports.d.ts", // plugins này sẽ tự động generated ra file auto-imports.d.ts trong source src.
+      imports: ['vue', '@vueuse/core', 'vue-router'],
+      dts: 'src/auto-imports.d.ts', // plugins này sẽ tự động generated ra file auto-imports.d.ts trong source src.
       dirs: [], // chỗ này mình có thể thêm name folder nó sẽ tự động lấy tất cả các tên file trong folder đó và mình có thể gọi bất kì ở trong file Vue nào mà không cần import. (src/stores)
       vueTemplate: true,
     }),
     Components({
       resolvers: [AntDesignVueResolver()],
       include: [/\.vue$/, /\.vue\?vue/],
-      dts: "src/components.d.ts", // plugins này sẽ tự động generated ra file components.d.ts trong source src.
+      dts: 'src/components.d.ts', // plugins này sẽ tự động generated ra file components.d.ts trong source src.
     }),
   ],
-});
+})

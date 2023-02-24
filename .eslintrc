@@ -9,15 +9,12 @@
         "@vue/eslint-config-typescript",
         "prettier"
     ],
-    "rules": {},
+    "rules": {
+        "vue/multi-word-component-names": 0
+    },
     "ignorePatterns": [
         "node_modules/*",
         "dist/*",
         "public/*"
-    ], //  các thư mục trong mảng này nó sẽ bỏ qua và không check lỗi
-    "scripts": {
-        "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore src", // check lỗi eslint
-        "lint:fix": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src", // check và fix lỗi eslint có thể fix nhưng không phải là hoàn toàn
-        "format": "prettier .  --write",
-    }
+    ] //  các thư mục trong mảng này nó sẽ bỏ qua và không check lỗi
 }
